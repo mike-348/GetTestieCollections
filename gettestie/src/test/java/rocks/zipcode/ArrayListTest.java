@@ -11,7 +11,7 @@ public class ArrayListTest {
     Person Thina = new Person("Thina", 1993);
 
     Address sherlock = new Address("221B Baker St", "London", "NW1 6XE");
-    Address stewie = new Address("31 Spooner St", "Quahog", "00093");
+    Address watson = new Address("221B Baker St", "London", "NW1 6XE");
 
     @Test
     public void arrayListTest_Add() {
@@ -21,7 +21,7 @@ public class ArrayListTest {
 
         //WHEN
         list.add(sherlock);
-        list.add(stewie);
+        list.add(watson);
         Integer actual = list.size();
 
         //THEN
@@ -37,7 +37,7 @@ public class ArrayListTest {
         //WHEN
         list.add(sherlock);
         list.remove(sherlock);
-        list.add(stewie);
+        list.add(watson);
         Integer actual = list.size();
 
 
@@ -53,7 +53,7 @@ public class ArrayListTest {
 
         //WHEN
         list.add(sherlock);
-        list.add(stewie);
+        list.add(watson);
         list.clear();
         Integer actual = list.size();
 

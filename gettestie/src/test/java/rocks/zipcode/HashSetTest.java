@@ -16,14 +16,16 @@ public class HashSetTest {
     public void hashSetTest_Size() {
         //GIVEN
         Set<Person> set = new HashSet<>();
+        Integer expected = 3;
 
         //WHEN
         set.add(Mike);
         set.add(Tenae);
         set.add(Thina);
+        Integer actual = set.size();
 
         //THEN
-        Assert.assertEquals(3, set.size());
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -63,13 +65,13 @@ public class HashSetTest {
         //GIVEN
         String[] names = {"Mike", "Tenae", "Thina"};
         Set<String> set = new HashSet<>(Arrays.asList(names));
-        String expected = names.toString();
+        String expected = "[Mike, Tenae, Thina]";
 
         //WHEN
         String actual = set.toString();
 
         //THEN
-        Assert.assertFalse(expected.equals(actual));
+        Assert.assertNotEquals(expected, actual);
         // HashSet does not maintain insertion order
     }
 }
