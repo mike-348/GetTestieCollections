@@ -1,24 +1,78 @@
 package rocks.zipcode;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import static org.junit.Assert.*;
 import java.util.Stack;
 
 public class TestStack {
 
-    @org.junit.Before
-    public void setUp() throws Exception {
+    @Test
+    public void stackTest_Push() {
+        //GIVEN
+        Stack<Integer> stack = new Stack<>();
+        Integer expected = 2;
+
+
+        //WHEN
+        stack.push(5);
+        stack.push(2);
+        Integer actual = stack.size();
+
+        //THEN
+        Assert.assertEquals(expected, actual);
     }
 
-    @org.junit.After
-    public void tearDown() throws Exception {
+    @Test
+    public void stackTest_Peek() {
+        //GIVEN
+        Stack<Integer> stack = new Stack<>();
+        Integer expected = 20;
+
+        //WHEN
+        stack.push(5);
+        stack.push(10);
+        stack.push(15);
+        stack.push(20);
+        Integer actual = stack.peek();
+
+        //THEN
+        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(4, stack.size());
     }
 
-    @org.junit.Test
-    public void TestStack1() {
-        Stack<String> stack = new Stack<>();
-        stack.push("Hello world");
-        assertEquals(false, stack.isEmpty()); // false
+    @Test
+    public void stackTest_Pop() {
+        //GIVEN
+        Stack<Integer> stack = new Stack<>();
+        Integer expected = 3;
+
+        //WHEN
+        stack.push(5);
+        stack.push(10);
+        stack.push(15);
+        stack.push(20);
+        Integer numPopped = stack.pop();
+        Integer actual = stack.size();
+
+        //THEN
+        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(20, (long) numPopped);
     }
 
-    // Make a bigger test exercising more Stack methods.....
+    @Test
+    public void stackTest_IsEmpty() {
+        //GIVEN
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        //WHEN
+        boolean actual = stack.isEmpty();
+
+        //THEN
+        Assert.assertFalse(actual);
+    }
 }
